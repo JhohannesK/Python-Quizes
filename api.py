@@ -12,6 +12,20 @@ response_dict = r.json()
 
 # Finding the total repos
 print(f"Total Repositories: {response_dict['total_count']}")
-repo_dict = response_dict['items']
+repo_dicts = response_dict['items']
 
-print(f"Repositories returned: {len(repo_dict)}")
+print(f"Repositories returned: {len(repo_dicts)}")
+
+# Exploring first repository
+repo_dict = repo_dicts[0]
+print(f"\nKeys: {len(repo_dict)}")
+
+for x in repo_dict.keys():
+    print(x)
+    
+print("\nSelecting particular information in each repo")
+
+for repo_dict in repo_dicts:
+    print(f"Name: {repo_dict['full_name']}")
+    print(f"Language: {repo_dict['language']}")
+    print(f"Owner: {repo_dict['owner']}")
